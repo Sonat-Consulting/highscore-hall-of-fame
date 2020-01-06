@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="float-right">
+    <span class="smiley">🙌</span><img class="logo" src="../assets/images/Sonat_Logo.png" /><span class="smiley">🙌</span>
+  </div>
+  <h1>Sonat's Rodeo<span style="font-size:100px;">🤠</span></h1>
+
+  <h5><span class="smiley">✋</span>Highscores<span class="smiley">🤚</span></h5>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="teamname">
+      <th mat-header-cell *matHeaderCellDef>Team name</th>
+      <td mat-cell *matCellDef="let element">{{ element.player }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="emoji">
+      <th mat-header-cell *matHeaderCellDef>Emoji</th>
+      <td class="smiley" mat-cell *matCellDef="let element">{{ getEmojiForElement(element) }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="points">
+      <th mat-header-cell *matHeaderCellDef>Points</th>
+      <td mat-cell *matCellDef="let element">{{ element.points }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <br />
+
+  <div class="row">
+    <form [formGroup]="form" class="col-12">
+      <h3>Legg til nytt lag <span class="smiley">👊</span></h3>
+      <mat-form-field appearance="outline">
+        <input formControlName="team" matInput placeholder="Team name" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input type="number" formControlName="points" matInput placeholder="Points" />
+      </mat-form-field>
+      <br />
+      <button mat-raised-button color="primary" (click)="addNewTeam()">Legg til<span class="smiley">💪</span></button>
+    </form>
+  </div>
+  <mat-form-field appearance="outline">
+    <input type="text" matInput placeholder="Team name" [(ngModel)]="teamname" />
+  </mat-form-field>
+  <br />
+  <button mat-raised-button color="primary" (click)="removeScore()">Fjern score<span class="smiley">😱</span></button>
+</div>
