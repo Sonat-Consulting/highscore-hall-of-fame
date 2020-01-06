@@ -11,7 +11,7 @@ Start a new terminal window and navigate to the highscore-client folder.
 `npm install` Install all the node modules.
 `ng serve` boots up the client for use in a browser.
 
-This is forked from https://github.com/sius/hall-of-fame
+This code is mostly from https://github.com/sius/hall-of-fame
 
 ## Welcome to "The Hall Of Fame" (<= 90min)
 
